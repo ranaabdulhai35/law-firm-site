@@ -1,0 +1,279 @@
+/* =====================================================================
+   SITE LAYER — additive styles for the law-firm pages.
+   Uses ONLY the inherited ANY1 design tokens (--ink / --bone / --ember /
+   --line / the same font families). Nothing in styles.css is overridden.
+   ===================================================================== */
+
+/* ---------- text brand wordmark (replaces ANY1's image logo) ---------- */
+.brand .brand-name{
+  font-family:'Archivo Expanded','Archivo',sans-serif;font-weight:900;
+  font-size:19px;letter-spacing:-.01em;text-transform:uppercase;color:var(--bone);
+  line-height:1;display:inline-flex;align-items:baseline;gap:.05em;
+}
+.brand .brand-name .sq{margin-left:.14em}
+.foot .brand .brand-name{font-size:18px}
+
+/* ---------- services dropdown in the nav ---------- */
+.has-drop{position:relative}
+.has-drop > a{display:inline-flex;align-items:center;gap:7px}
+.has-drop > a .caret{width:9px;height:9px;transition:transform .3s var(--ease);flex:none}
+.has-drop:hover > a .caret{transform:rotate(180deg)}
+.drop{
+  position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(8px);
+  width:320px;background:rgba(245,245,234,.94);backdrop-filter:blur(14px);
+  border:1px solid var(--line);padding:8px;opacity:0;visibility:hidden;
+  transition:opacity .28s var(--ease),transform .28s var(--ease);z-index:60;
+}
+.has-drop:hover .drop{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.drop::before{content:"";position:absolute;top:-16px;left:0;right:0;height:16px}
+.drop a,.drop .soon{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px 14px;border-bottom:1px solid var(--line-2);
+}
+.drop a:last-child,.drop .soon:last-child{border-bottom:0}
+.drop a{transition:background .2s}
+.drop a:hover{background:rgba(71,10,26,.05)}
+.drop .nm{font-family:'Archivo',sans-serif;font-weight:600;font-size:13.5px;color:var(--bone-2)}
+.drop a:hover .nm{color:var(--bone)}
+.drop .soon{opacity:.5;cursor:default}
+.drop .soon .nm{color:var(--ash)}
+.tag-live{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:#5fd38a}
+.tag-soon{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ash-2);border:1px solid var(--line);padding:2px 6px}
+
+/* dropdown collapses into the mobile menu */
+@media(max-width:760px){
+  .has-drop .drop{position:static;transform:none;width:auto;opacity:1;visibility:visible;
+    background:transparent;border:0;backdrop-filter:none;padding:0 0 6px;display:none}
+  .navlinks.open .has-drop .drop{display:block}
+  .has-drop > a .caret{display:none}
+}
+
+/* ---------- page hero (compact, for interior pages) ---------- */
+.page-hero{position:relative;z-index:2;padding:150px 0 40px}
+.page-hero .crumb{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ember);margin-bottom:26px;display:flex;align-items:center;gap:10px}
+.page-hero .crumb a{color:var(--ash)}
+.page-hero .crumb a:hover{color:var(--bone-2)}
+.page-hero h1.hero-h{font-size:clamp(40px,7vw,104px)}
+.stack-sub{margin:30px 0 0;font-family:'Archivo',sans-serif;font-weight:800;
+  font-size:clamp(20px,2.6vw,30px);line-height:1.12;letter-spacing:-.01em;text-transform:uppercase}
+.stack-sub span{display:block;color:var(--bone)}
+.stack-sub span + span{color:var(--ember)}
+.stack-sub span + span + span{color:transparent;-webkit-text-stroke:1px var(--bone)}
+
+/* ---------- "coming soon" state on practice cards ---------- */
+.hw.soon{opacity:.46}
+.hw.soon:hover{transform:none;border-color:var(--line)}
+.hw.soon:hover::after{opacity:0}
+.hw .soon-pill{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ash-2);border:1px solid var(--line);padding:3px 8px}
+a.hw{color:inherit}
+
+/* ---------- services grid (3-up), reuses .hw card look ---------- */
+.grid-svc{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc{background:linear-gradient(180deg,var(--ink-2),var(--ink));border:1px solid var(--line);
+  padding:30px;position:relative;overflow:hidden;transition:.4s var(--ease);
+  display:flex;flex-direction:column;min-height:230px}
+.svc::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 90% at 100% 0,rgba(214,44,44,.10),transparent 60%);
+  opacity:0;transition:.4s var(--ease)}
+.svc:hover{border-color:rgba(71,10,26,.22);transform:translateY(-4px);box-shadow:0 20px 40px -22px rgba(71,10,26,.35)}
+.svc:hover::after{opacity:1}
+.svc .ico{width:26px;height:26px;color:var(--bone);margin-bottom:22px}
+.svc h4{font-family:'Fraunces',serif;font-weight:300;font-size:19px;letter-spacing:-.03em;line-height:1.12}
+.svc p{color:var(--bone-2);font-size:14px;line-height:1.55;margin-top:12px}
+.svc .foot-row{margin-top:auto;padding-top:20px;display:flex;align-items:center;justify-content:space-between}
+.svc .go{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--bone);display:inline-flex;align-items:center;gap:8px}
+.svc .go svg{width:13px;height:13px}
+.svc.soon{opacity:.5}
+.svc.soon:hover{transform:none;border-color:var(--line)}
+.svc.soon:hover::after{opacity:0}
+a.svc{color:inherit}
+
+/* re-use ANY1's "live" dot styling for an "actively handled" tag */
+.dep .live.handled i{background:var(--ember);box-shadow:0 0 10px var(--ember)}
+
+@media(max-width:1000px){ .grid-svc{grid-template-columns:1fr 1fr} }
+@media(max-width:760px){ .grid-svc{grid-template-columns:1fr} .page-hero{padding-top:120px} }
+
+/* ---------- team / attorney profiles (placeholder cards) ---------- */
+.team-card .avatar{width:56px;height:56px;border:1px solid var(--line);background:var(--ink-3);
+  display:flex;align-items:center;justify-content:center;margin-bottom:22px;
+  font-family:'Archivo Expanded','Archivo',sans-serif;font-weight:900;font-size:18px;
+  color:var(--ember);letter-spacing:.02em}
+.team-card .who{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ash);margin-top:6px}
+
+/* =====================================================================
+   PITHOS.EU HEADING COLOR + FONT
+   Values pulled directly from pithos.eu's live stylesheet:
+     wine #470a1a (heading/text), scarlet #d62c2c (accent), cream #f5f5ea (bg).
+   Their heading font "ABC Prophet" is a commercial variable font (wght 200,
+   letter-spacing -.03em) served from their own domain — it can't be
+   legally copied here, so headings use Fraunces (free serif) at a
+   matching light weight/tracking as the closest available substitute.
+   This overrides the ANY1 design layer in styles.css by redeclaring its
+   tokens and literal colors here, rather than editing that file directly.
+   ===================================================================== */
+:root{
+  --ink:#f5f5ea;
+  --ink-2:#efefe1;
+  --ink-3:#e6e6d3;
+  --bone:#470a1a;
+  --bone-2:#483c40;
+  --ash:#5b5054;
+  --ash-2:#95898e;
+  --line:rgba(71,10,26,.14);
+  --line-2:rgba(71,10,26,.08);
+  --ember:#d62c2c;
+  --ember-soft:rgba(214,44,44,.4);
+}
+
+body::before{
+  background:
+    radial-gradient(120% 90% at 50% -10%, rgba(214,44,44,.05), transparent 55%),
+    radial-gradient(100% 100% at 50% 120%, rgba(71,10,26,.05), transparent 60%),
+    linear-gradient(var(--line-2) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line-2) 1px,transparent 1px);
+}
+header.scrolled{background:rgba(245,245,234,.82)}
+.navlinks.open{background:rgba(245,245,234,.96)}
+.btn:hover{box-shadow:0 0 24px rgba(71,10,26,.15)}
+.hero-ghost{color:rgba(71,10,26,.035)}
+.hw:hover{border-color:rgba(71,10,26,.22);box-shadow:0 20px 40px -22px rgba(71,10,26,.35)}
+.hw::after{background:radial-gradient(120% 90% at 100% 0,rgba(214,44,44,.10),transparent 60%)}
+.cta-glow{background:radial-gradient(closest-side,rgba(214,44,44,.10),transparent)}
+
+/* heading font: Fraunces at light weight + tight tracking, mirroring ABC Prophet's proportions */
+h1.hero-h,
+h2.sec-title,
+.band h3,
+.hw h4,
+.dep h4,
+.pipe .stage h5,
+.step h4,
+.cta h2{
+  font-family:'Fraunces',serif;
+  font-weight:300;
+  letter-spacing:-.03em;
+}
+
+/* same typeface everywhere it reads as display/emphasis text, not just <h*> tags —
+   weights stay as declared elsewhere (700-900); only the typeface unifies to Fraunces */
+.hero-strip .k,
+.marquee .item,
+.pledge .t,
+.step .big,
+.brand .brand-name{
+  font-family:'Fraunces',serif;
+}
+
+/* hero headline: keep the lead/muted/outline rhythm, but stay inside the wine/scarlet family
+   instead of dropping to neutral grey, so the reddish palette reads as the dominant identity */
+h1.hero-h .muted{color:var(--ember)}
+h1.hero-h .out{-webkit-text-stroke:1.4px var(--bone)}
+
+/* ---------- intro split panel (photo + wine block) ----------
+   No photography asset exists in this project yet, so the left panel is a
+   dark vignette standing in for one — swap its background for a real
+   background-image:url(...) whenever a firm photo is available. */
+.intro-split{display:grid;grid-template-columns:1fr 1fr;min-height:620px;position:relative;z-index:2}
+.intro-media{
+  position:relative;overflow:hidden;padding:56px;display:flex;align-items:flex-end;
+  background:linear-gradient(150deg,#1c0409 0%,var(--bone) 60%,#2a0810 100%);
+}
+.intro-media::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(46% 46% at 38% 40%,rgba(245,245,234,.16),transparent 70%)}
+.intro-media::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(closest-side at 38% 40%,transparent 0%,transparent 30%,rgba(6,6,7,.6) 72%)}
+.intro-media h2{position:relative;z-index:2;font-family:'Fraunces',serif;font-weight:300;
+  font-size:clamp(30px,3.6vw,46px);line-height:1.08;letter-spacing:-.01em;color:var(--ink)}
+.intro-copy{background:var(--bone);color:var(--ink);padding:80px 64px;
+  display:flex;flex-direction:column;justify-content:center;gap:24px}
+.intro-lead{font-size:clamp(18px,1.6vw,23px);line-height:1.5;font-weight:500;margin:0}
+.intro-copy p{margin:0}
+.intro-copy p:not(.intro-lead){color:rgba(245,245,234,.75);font-size:15px;line-height:1.72}
+@media(max-width:900px){
+  .intro-split{grid-template-columns:1fr;min-height:auto}
+  .intro-media{min-height:320px;padding:36px}
+  .intro-copy{padding:56px 28px}
+}
+
+/* ---------- footer: same wine panel + cream text as the intro-split copy block ---------- */
+footer{background:var(--bone);border-top-color:rgba(245,245,234,.14)}
+.foot .brand .brand-name{color:var(--ink)}
+.foot p{color:rgba(245,245,234,.7)}
+.foot h6{color:rgba(245,245,234,.5)}
+.foot ul li a{color:rgba(245,245,234,.85)}
+.foot ul li a:hover{color:var(--ink)}
+.foot-bar{border-top-color:rgba(245,245,234,.14)}
+.foot-bar span{color:rgba(245,245,234,.5)}
+
+/* ---------- hero background photo carousel ----------
+   Photos: images/hero-1..4.jpg — free-license stock photos (Pexels License:
+   free for commercial use, no attribution required) standing in for real firm
+   photography. Swap them for your own by replacing those files; everything
+   else (crossfade, mask, text contrast) keeps working unchanged. */
+.hero{overflow:hidden}
+.hero-carousel{position:absolute;inset:0;z-index:0}
+.hc-slide{position:absolute;inset:0;background-size:cover;background-position:center;
+  opacity:0;transition:opacity 1.8s ease;background-color:#1c0409}
+.hc-slide.is-active{opacity:1}
+.hc-1{background-image:url(images/hero-1.jpg)}
+.hc-2{background-image:url(images/hero-2.jpg)}
+.hc-3{background-image:url(images/hero-3.jpg)}
+.hc-4{background-image:url(images/hero-4.jpg)}
+.hero-mask{position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(100deg,rgba(71,10,26,.85) 0%,rgba(71,10,26,.55) 32%,rgba(6,6,7,.35) 62%,rgba(6,6,7,.22) 100%),
+    linear-gradient(to top,rgba(6,6,7,.68) 0%,transparent 56%)}
+.hero .wrap{position:relative;z-index:2}
+.hero .hero-ghost{display:none}
+
+/* hero text over the photo: switch from wine-on-cream to cream-on-photo for legibility */
+.hero .eyebrow{color:rgba(245,245,234,.85)}
+.hero h1.hero-h .lead{color:var(--ink)}
+.hero h1.hero-h .out{-webkit-text-stroke-color:var(--ink)}
+.hero .hero-sub{color:rgba(245,245,234,.8)}
+.hero .hero-sub b{color:var(--ink)}
+.hero .btn.ghost{color:var(--ink);border-color:rgba(245,245,234,.4)}
+.hero .btn.ghost:hover{border-color:var(--ink)}
+
+/* fixed nav sits directly over the photo at the top of the homepage — go light there,
+   but only until scrolled (once .scrolled adds the cream header backdrop, revert to normal)
+   and only on the closed desktop nav (the open mobile menu has its own light backdrop) */
+header.on-photo:not(.scrolled) .navlinks:not(.open) a{color:var(--ink)}
+header.on-photo:not(.scrolled) .brand-name{color:var(--ink)}
+header.on-photo:not(.scrolled) .brand .tag{color:rgba(245,245,234,.6);border-left-color:rgba(245,245,234,.25)}
+header.on-photo:not(.scrolled) .menu-btn{border-color:rgba(245,245,234,.4);color:var(--ink)}
+
+/* ---------- reddish accent thread through every card grid, site-wide ----------
+   Small, consistent touches (not full color blocks) so every section — practice
+   areas, matters, pipeline, pledges, team — carries a bit of the wine/scarlet
+   identity instead of reading as flat cream with only the headings colored. */
+.hw,.svc,.dep,.pipe .stage{position:relative}
+.hw::before,.svc::before,.dep::before,.pipe .stage::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;z-index:1;
+  background:linear-gradient(90deg,var(--ember),transparent 85%);
+}
+.pipe{overflow:hidden}
+
+/* numbered/indexed labels become small tinted chips instead of plain text */
+.hw .idx{background:rgba(214,44,44,.12);padding:3px 9px;border-radius:3px}
+.pipe .stage .pn{background:rgba(214,44,44,.12);padding:3px 9px;border-radius:3px;display:inline-block}
+.pledge .n{background:rgba(214,44,44,.12);color:var(--ember);width:34px;height:34px;min-width:34px;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;padding-top:0}
+
+/* .dep and .pipe stages get the same hover glow already used on .hw/.svc, for consistency */
+.dep::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 90% at 100% 100%,rgba(214,44,44,.10),transparent 60%);
+  opacity:0;transition:.4s var(--ease)}
+.dep:hover::after{opacity:1}
+.pipe .stage{transition:background .35s var(--ease)}
+.pipe .stage:hover{background:linear-gradient(180deg,rgba(214,44,44,.07),var(--ink-2) 65%)}
+
+/* team avatar ring picks up the accent instead of a neutral line */
+.team-card .avatar{border-color:rgba(214,44,44,.35)}
