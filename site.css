@@ -277,3 +277,76 @@ header.on-photo:not(.scrolled) .menu-btn{border-color:rgba(245,245,234,.4);color
 
 /* team avatar ring picks up the accent instead of a neutral line */
 .team-card .avatar{border-color:rgba(214,44,44,.35)}
+
+/* ---------- pinned scroll-through reveal, used by every "01 —" style section ----------
+   Each .pin-track is tall (scroll room scales with --steps, its item count);
+   the section inside sticks to the top of the viewport while that room
+   scrolls underneath, and app.js toggles .in-step on each .reveal-step as
+   scroll progress through the track crosses its threshold. Once the track's
+   height is used up, the section un-sticks and the page continues normally
+   — no extra JS needed for the release. */
+.pin-track{position:relative;height:calc(100vh + var(--steps, 4) * 48vh)}
+.pin-track > section{position:sticky;top:0;min-height:100svh;display:flex;
+  align-items:center;overflow:hidden;padding:36px 0}
+.pin-track .sec-head{margin-bottom:34px}
+.pin-track .hw{padding:24px}
+.pin-track .hw .tagrow{margin-bottom:18px}
+.pin-track .hw .role{min-height:0}
+.pin-track .hw .specs{margin-top:16px;padding-top:12px}
+.pin-track .grid-hw{gap:14px}
+/* wide grids (e.g. the 12-card IP services list) get an extra column while pinned so
+   they resolve in fewer rows. Scoped to exactly when the pin is active (matches the
+   inverse of the disable query below) so it never fights the site's own responsive
+   breakpoints for .grid-svc (2-col at ≤1000px, 1-col at ≤760px) on narrower screens. */
+@media(min-width:901px) and (prefers-reduced-motion:no-preference){
+  .pin-track-wide .grid-svc{grid-template-columns:repeat(4,1fr);gap:14px}
+  .pin-track-wide .svc{padding:20px;min-height:0}
+  .pin-track-wide .svc .ico{width:20px;height:20px;margin-bottom:14px}
+  .pin-track-wide .svc p{margin-top:8px;font-size:13px;line-height:1.45}
+}
+.reveal-step{opacity:0;transform:translateY(46px) scale(.94);
+  transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal-step.in-step{opacity:1;transform:none}
+@media(max-width:900px),(prefers-reduced-motion:reduce){
+  .pin-track{height:auto}
+  .pin-track > section.section{padding:130px 0}
+  .pin-track > section{position:static;min-height:auto}
+  .pin-track .sec-head{margin-bottom:60px}
+  .pin-track .hw{padding:34px}
+  .pin-track .hw .tagrow{margin-bottom:30px}
+  .pin-track .hw .role{min-height:62px}
+  .pin-track .hw .specs{margin-top:24px;padding-top:18px}
+  .pin-track .grid-hw{gap:20px}
+  .reveal-step{opacity:1;transform:none;transition:none}
+}
+
+/* ---------- smoother, more dynamic scroll reveal everywhere else ----------
+   Adds a touch of scale to the ANY1 fade+rise so content feels like it's
+   settling into place rather than just fading in. */
+[data-reveal]{transform:translateY(30px) scale(.97);
+  transition:opacity .9s var(--ease),transform .9s var(--ease)}
+[data-reveal].in{transform:none}
+@media(prefers-reduced-motion:reduce){
+  [data-reveal]{transform:none;transition:none}
+}
+
+/* ---------- hero photo carousel: slow continuous drift on the active slide ----------
+   Pure CSS "Ken Burns" zoom — independent of scroll, just gives the background
+   a sense of life instead of sitting completely static behind the headline. */
+.hc-slide{transform:scale(1.05)}
+.hc-slide.is-active{animation:hero-drift 11s ease-in-out infinite alternate}
+@keyframes hero-drift{
+  from{transform:scale(1.05) translate(0,0)}
+  to{transform:scale(1.14) translate(-1.5%,-2%)}
+}
+@media(prefers-reduced-motion:reduce){
+  .hc-slide.is-active{animation:none}
+}
+
+/* ---------- real scroll-linked parallax on the hero photo layer ----------
+   app.js sets --hero-scroll (0→1 across the hero's own height) and this
+   layer drifts a little slower than the page, for actual depth on scroll
+   rather than a one-shot trigger. Oversized upward (top:-60px instead of 0)
+   so shifting it down by up to 60px never exposes bare background above it. */
+.hero-carousel{top:-60px;bottom:0;
+  transform:translateY(calc(var(--hero-scroll, 0) * 60px))}

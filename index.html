@@ -127,212 +127,226 @@
 </section>
 
 <!-- 01 — WHY US -->
-<section class="band" id="about">
-  <div class="wrap band-inner">
-    <div class="band-left" data-reveal>
-      <span class="sec-num">01 — Why us</span>
-      <h3>Specialised.<br>Full-service.<br>Discreet.</h3>
-      <p>Most firms make you choose between deep specialisation and full-service coverage. We give you
-        both — a flagship Intellectual Property practice backed by complete commercial, civil, criminal,
-        family and service-law capability, handled with absolute confidentiality.</p>
+<!-- pin-track gives this section extra scroll room: the .band inside sticks in place
+     while the pledge items join one by one, then releases once all 4 have appeared -->
+<div class="pin-track" id="about" style="--steps:4">
+  <section class="band">
+    <div class="wrap band-inner">
+      <div class="band-left" data-reveal>
+        <span class="sec-num">01 — Why us</span>
+        <h3>Specialised.<br>Full-service.<br>Discreet.</h3>
+        <p>Most firms make you choose between deep specialisation and full-service coverage. We give you
+          both — a flagship Intellectual Property practice backed by complete commercial, civil, criminal,
+          family and service-law capability, handled with absolute confidentiality.</p>
+      </div>
+      <div class="band-right">
+        <ul class="pledge">
+          <li class="reveal-step"><div class="n">01</div><div><div class="t">Specialisation depth</div><div class="d">Intellectual Property is our flagship discipline — trademarks, patents, copyrights and designs handled by specialists, not generalists.</div></div></li>
+          <li class="reveal-step"><div class="n">02</div><div><div class="t">End-to-end service</div><div class="d">From first filing to final enforcement, we manage the entire lifecycle of your matter under one roof.</div></div></li>
+          <li class="reveal-step"><div class="n">03</div><div><div class="t">Confidentiality &amp; discretion</div><div class="d">Your brands, inventions and disputes are handled with strict privilege and complete discretion.</div></div></li>
+          <li class="reveal-step"><div class="n">04</div><div><div class="t">Pakistan-wide &amp; international</div><div class="d">Local expertise across Pakistan, coordinated with international filings and cross-border protection.</div></div></li>
+        </ul>
+      </div>
     </div>
-    <div class="band-right">
-      <ul class="pledge">
-        <li data-reveal><div class="n">01</div><div><div class="t">Specialisation depth</div><div class="d">Intellectual Property is our flagship discipline — trademarks, patents, copyrights and designs handled by specialists, not generalists.</div></div></li>
-        <li data-reveal data-d="1"><div class="n">02</div><div><div class="t">End-to-end service</div><div class="d">From first filing to final enforcement, we manage the entire lifecycle of your matter under one roof.</div></div></li>
-        <li data-reveal data-d="2"><div class="n">03</div><div><div class="t">Confidentiality &amp; discretion</div><div class="d">Your brands, inventions and disputes are handled with strict privilege and complete discretion.</div></div></li>
-        <li data-reveal data-d="3"><div class="n">04</div><div><div class="t">Pakistan-wide &amp; international</div><div class="d">Local expertise across Pakistan, coordinated with international filings and cross-border protection.</div></div></li>
-      </ul>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <!-- 02 — PRACTICE AREAS -->
-<section class="section" id="practice">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="lhs" data-reveal>
-        <span class="sec-num">02 — Practice areas</span>
-        <h2 class="sec-title">Counsel matched<br>to the matter</h2>
-        <p class="sec-desc">A flagship Intellectual Property practice, live today — with corporate, civil,
-          criminal, family, service and media/telecom practices rolling out from the same bench.</p>
+<div class="pin-track" id="practice" style="--steps:4">
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="lhs" data-reveal>
+          <span class="sec-num">02 — Practice areas</span>
+          <h2 class="sec-title">Counsel matched<br>to the matter</h2>
+          <p class="sec-desc">A flagship Intellectual Property practice, live today — with corporate, civil,
+            criminal, family, service and media/telecom practices rolling out from the same bench.</p>
+        </div>
+        <a href="services.html" class="btn ghost" data-reveal data-d="1">View all services</a>
       </div>
-      <a href="services.html" class="btn ghost" data-reveal data-d="1">View all services</a>
+      <div class="grid-hw">
+        <a href="intellectual-property.html" class="hw perim reveal-step">
+          <div class="tagrow"><span class="vendor">Flagship practice</span><span class="idx">01</span></div>
+          <h4>Intellectual Property</h4>
+          <div class="role">Trademarks, patents, copyrights, designs and enforcement — securing and commercialising the ideas that set you apart.</div>
+          <div class="specs">
+            <div>Focus <span>TM · Patents · Copyright</span></div>
+            <div>Jurisdiction <span>Pakistan &amp; Intl</span></div>
+            <div>Best for <span>Startups · Enterprises</span></div>
+          </div>
+        </a>
+        <div class="hw perim soon reveal-step">
+          <div class="tagrow"><span class="vendor">Business law</span><span class="soon-pill">Coming soon</span></div>
+          <h4>Corporate &amp; Commercial</h4>
+          <div class="role">Company formation, governance, contracts, transactions and regulatory compliance for businesses of every size.</div>
+          <div class="specs">
+            <div>Focus <span>Contracts · M&amp;A</span></div>
+            <div>Jurisdiction <span>Pakistan &amp; Intl</span></div>
+            <div>Best for <span>Companies · Founders</span></div>
+          </div>
+        </div>
+        <div class="hw perim soon reveal-step">
+          <div class="tagrow"><span class="vendor">Disputes</span><span class="soon-pill">Coming soon</span></div>
+          <h4>Litigation &amp; Disputes</h4>
+          <div class="role">Civil and criminal representation — recovery, property, contractual disputes, defence and trial advocacy.</div>
+          <div class="specs">
+            <div>Focus <span>Civil · Criminal</span></div>
+            <div>Forum <span>Trial &amp; appellate</span></div>
+            <div>Best for <span>Individuals · Firms</span></div>
+          </div>
+        </div>
+        <div class="hw perim soon reveal-step">
+          <div class="tagrow"><span class="vendor">Regulated sectors</span><span class="soon-pill">Coming soon</span></div>
+          <h4>Media, Telecom &amp; Internet</h4>
+          <div class="role">Licensing, content, platform and regulatory matters across media, telecommunications and the internet.</div>
+          <div class="specs">
+            <div>Focus <span>Licensing · Content</span></div>
+            <div>Jurisdiction <span>Pakistan</span></div>
+            <div>Best for <span>Operators · Platforms</span></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="grid-hw">
-      <a href="intellectual-property.html" class="hw perim" data-reveal>
-        <div class="tagrow"><span class="vendor">Flagship practice</span><span class="idx">01</span></div>
-        <h4>Intellectual Property</h4>
-        <div class="role">Trademarks, patents, copyrights, designs and enforcement — securing and commercialising the ideas that set you apart.</div>
-        <div class="specs">
-          <div>Focus <span>TM · Patents · Copyright</span></div>
-          <div>Jurisdiction <span>Pakistan &amp; Intl</span></div>
-          <div>Best for <span>Startups · Enterprises</span></div>
-        </div>
-      </a>
-      <div class="hw perim soon" data-reveal data-d="1">
-        <div class="tagrow"><span class="vendor">Business law</span><span class="soon-pill">Coming soon</span></div>
-        <h4>Corporate &amp; Commercial</h4>
-        <div class="role">Company formation, governance, contracts, transactions and regulatory compliance for businesses of every size.</div>
-        <div class="specs">
-          <div>Focus <span>Contracts · M&amp;A</span></div>
-          <div>Jurisdiction <span>Pakistan &amp; Intl</span></div>
-          <div>Best for <span>Companies · Founders</span></div>
-        </div>
-      </div>
-      <div class="hw perim soon" data-reveal data-d="2">
-        <div class="tagrow"><span class="vendor">Disputes</span><span class="soon-pill">Coming soon</span></div>
-        <h4>Litigation &amp; Disputes</h4>
-        <div class="role">Civil and criminal representation — recovery, property, contractual disputes, defence and trial advocacy.</div>
-        <div class="specs">
-          <div>Focus <span>Civil · Criminal</span></div>
-          <div>Forum <span>Trial &amp; appellate</span></div>
-          <div>Best for <span>Individuals · Firms</span></div>
-        </div>
-      </div>
-      <div class="hw perim soon" data-reveal data-d="3">
-        <div class="tagrow"><span class="vendor">Regulated sectors</span><span class="soon-pill">Coming soon</span></div>
-        <h4>Media, Telecom &amp; Internet</h4>
-        <div class="role">Licensing, content, platform and regulatory matters across media, telecommunications and the internet.</div>
-        <div class="specs">
-          <div>Focus <span>Licensing · Content</span></div>
-          <div>Jurisdiction <span>Pakistan</span></div>
-          <div>Best for <span>Operators · Platforms</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <!-- 03 — MATTERS WE HANDLE -->
-<section class="section" id="matters" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="lhs" data-reveal>
-        <span class="sec-num">03 — Matters we handle</span>
-        <h2 class="sec-title">IP work,<br>actively handled</h2>
-        <p class="sec-desc">Representative intellectual-property matters we manage day to day — from first
-          registration through to enforcement and commercialisation.</p>
+<div class="pin-track" id="matters" style="--steps:6">
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="lhs" data-reveal>
+          <span class="sec-num">03 — Matters we handle</span>
+          <h2 class="sec-title">IP work,<br>actively handled</h2>
+          <p class="sec-desc">Representative intellectual-property matters we manage day to day — from first
+            registration through to enforcement and commercialisation.</p>
+        </div>
+      </div>
+      <div class="grid-dep">
+        <div class="dep reveal-step">
+          <span class="sector">Brands</span>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0l-7-7a2 2 0 0 1-.6-1.4V4a1 1 0 0 1 1-1h8.2a2 2 0 0 1 1.4.6l7 7a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.4"/></svg>
+          <h4>Trademark registration</h4>
+          <p>Filing, examination response and registration of brand names, logos and slogans with the Trademarks Registry.</p>
+          <span class="live handled"><i></i>Actively handled</span>
+        </div>
+        <div class="dep reveal-step">
+          <span class="sector">Inventions</span>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.5.4.8 1 .9 1.6l.1.6h5.2l.1-.6c.1-.6.4-1.2.9-1.6A6 6 0 0 0 12 3Z"/></svg>
+          <h4>Patent filing &amp; prosecution</h4>
+          <p>Preparing and prosecuting patent applications to protect inventions and technical innovations.</p>
+          <span class="live handled"><i></i>Actively handled</span>
+        </div>
+        <div class="dep reveal-step">
+          <span class="sector">Works</span>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M14 3v5h5"/></svg>
+          <h4>Copyright protection</h4>
+          <p>Registering literary, artistic, musical and software works to secure exclusive rights.</p>
+          <span class="live handled"><i></i>Actively handled</span>
+        </div>
+        <div class="dep reveal-step">
+          <span class="sector">Enforcement</span>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 5 6v5c0 4.4 3 8.3 7 9.5 4-1.2 7-5.1 7-9.5V6Z"/><path d="m9.5 12 1.8 1.8 3.2-3.6"/></svg>
+          <h4>Anti-counterfeiting</h4>
+          <p>Raids, investigations and enforcement actions against counterfeit and infringing goods.</p>
+          <span class="live handled"><i></i>Actively handled</span>
+        </div>
+        <div class="dep reveal-step">
+          <span class="sector">Commercial</span>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 12h18"/></svg>
+          <h4>IP licensing &amp; commercialisation</h4>
+          <p>Drafting and negotiating licensing, franchising and assignment agreements to monetise IP.</p>
+          <span class="live handled"><i></i>Actively handled</span>
+        </div>
+        <div class="dep reveal-step">
+          <span class="sector">Digital</span>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.7 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3Z"/></svg>
+          <h4>Domain name disputes</h4>
+          <p>Resolving cybersquatting and domain-related conflicts that threaten your brand online.</p>
+          <span class="live handled"><i></i>Actively handled</span>
+        </div>
       </div>
     </div>
-    <div class="grid-dep">
-      <div class="dep" data-reveal>
-        <span class="sector">Brands</span>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0l-7-7a2 2 0 0 1-.6-1.4V4a1 1 0 0 1 1-1h8.2a2 2 0 0 1 1.4.6l7 7a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.4"/></svg>
-        <h4>Trademark registration</h4>
-        <p>Filing, examination response and registration of brand names, logos and slogans with the Trademarks Registry.</p>
-        <span class="live handled"><i></i>Actively handled</span>
-      </div>
-      <div class="dep" data-reveal data-d="1">
-        <span class="sector">Inventions</span>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.5.4.8 1 .9 1.6l.1.6h5.2l.1-.6c.1-.6.4-1.2.9-1.6A6 6 0 0 0 12 3Z"/></svg>
-        <h4>Patent filing &amp; prosecution</h4>
-        <p>Preparing and prosecuting patent applications to protect inventions and technical innovations.</p>
-        <span class="live handled"><i></i>Actively handled</span>
-      </div>
-      <div class="dep" data-reveal data-d="2">
-        <span class="sector">Works</span>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M14 3v5h5"/></svg>
-        <h4>Copyright protection</h4>
-        <p>Registering literary, artistic, musical and software works to secure exclusive rights.</p>
-        <span class="live handled"><i></i>Actively handled</span>
-      </div>
-      <div class="dep" data-reveal>
-        <span class="sector">Enforcement</span>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 5 6v5c0 4.4 3 8.3 7 9.5 4-1.2 7-5.1 7-9.5V6Z"/><path d="m9.5 12 1.8 1.8 3.2-3.6"/></svg>
-        <h4>Anti-counterfeiting</h4>
-        <p>Raids, investigations and enforcement actions against counterfeit and infringing goods.</p>
-        <span class="live handled"><i></i>Actively handled</span>
-      </div>
-      <div class="dep" data-reveal data-d="1">
-        <span class="sector">Commercial</span>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 12h18"/></svg>
-        <h4>IP licensing &amp; commercialisation</h4>
-        <p>Drafting and negotiating licensing, franchising and assignment agreements to monetise IP.</p>
-        <span class="live handled"><i></i>Actively handled</span>
-      </div>
-      <div class="dep" data-reveal data-d="2">
-        <span class="sector">Digital</span>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.7 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3Z"/></svg>
-        <h4>Domain name disputes</h4>
-        <p>Resolving cybersquatting and domain-related conflicts that threaten your brand online.</p>
-        <span class="live handled"><i></i>Actively handled</span>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <!-- 04 — OUR APPROACH -->
-<section class="section" id="approach" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="lhs" data-reveal>
-        <span class="sec-num">04 — Our approach</span>
-        <h2 class="sec-title">From innovation<br>to protection</h2>
-        <p class="sec-desc">A strategic legal process that moves an idea from unprotected to fully secured —
-          then keeps it working for you. <a href="intellectual-property.html#approach" style="color:var(--bone);border-bottom:1px solid var(--ember)">See the full approach</a>.</p>
+<div class="pin-track" id="approach" style="--steps:5">
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="lhs" data-reveal>
+          <span class="sec-num">04 — Our approach</span>
+          <h2 class="sec-title">From innovation<br>to protection</h2>
+          <p class="sec-desc">A strategic legal process that moves an idea from unprotected to fully secured —
+            then keeps it working for you. <a href="intellectual-property.html#approach" style="color:var(--bone);border-bottom:1px solid var(--ember)">See the full approach</a>.</p>
+        </div>
+      </div>
+      <div class="pipe">
+        <div class="stage reveal-step"><div class="pn">01</div><h5>Identify</h5><p>Assess your business and creative works to map the IP rights available to you.</p><div class="arrow">&rarr;</div></div>
+        <div class="stage reveal-step"><div class="pn">02</div><h5>Advise</h5><p>Clear, commercially focused advice and a strategy built around your objectives.</p><div class="arrow">&rarr;</div></div>
+        <div class="stage reveal-step"><div class="pn">03</div><h5>Protect</h5><p>File and prosecute trademarks, patents, copyrights and designs on your behalf.</p><div class="arrow">&rarr;</div></div>
+        <div class="stage reveal-step"><div class="pn">04</div><h5>Enforce</h5><p>Act on infringement, opposition and disputes to safeguard the value you've built.</p><div class="arrow">&rarr;</div></div>
+        <div class="stage reveal-step"><div class="pn">05</div><h5>Manage</h5><p>Ongoing portfolio management, renewals, licensing and strategic advice.</p></div>
       </div>
     </div>
-    <div class="pipe" data-reveal>
-      <div class="stage"><div class="pn">01</div><h5>Identify</h5><p>Assess your business and creative works to map the IP rights available to you.</p><div class="arrow">&rarr;</div></div>
-      <div class="stage"><div class="pn">02</div><h5>Advise</h5><p>Clear, commercially focused advice and a strategy built around your objectives.</p><div class="arrow">&rarr;</div></div>
-      <div class="stage"><div class="pn">03</div><h5>Protect</h5><p>File and prosecute trademarks, patents, copyrights and designs on your behalf.</p><div class="arrow">&rarr;</div></div>
-      <div class="stage"><div class="pn">04</div><h5>Enforce</h5><p>Act on infringement, opposition and disputes to safeguard the value you've built.</p><div class="arrow">&rarr;</div></div>
-      <div class="stage"><div class="pn">05</div><h5>Manage</h5><p>Ongoing portfolio management, renewals, licensing and strategic advice.</p></div>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <!-- 05 — HOW WE ENGAGE -->
-<section class="section" id="engage" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="lhs" data-reveal>
-        <span class="sec-num">05 — How we engage</span>
-        <h2 class="sec-title">A clear path,<br>in four moves</h2>
+<div class="pin-track" id="engage" style="--steps:4">
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="lhs" data-reveal>
+          <span class="sec-num">05 — How we engage</span>
+          <h2 class="sec-title">A clear path,<br>in four moves</h2>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step reveal-step"><div class="big">CONSULT</div><h4>Understand the matter</h4><p>We sit with you to understand your brand, invention or dispute and what a good outcome looks like.</p></div>
+        <div class="step reveal-step"><div class="big">STRATEGISE</div><h4>Build the strategy</h4><p>We map the rights available, the risks and the fastest, most defensible route to protection.</p></div>
+        <div class="step reveal-step"><div class="big">EXECUTE</div><h4>File &amp; enforce</h4><p>We register, file and — where needed — litigate, keeping you informed at every stage.</p></div>
+        <div class="step reveal-step"><div class="big">MANAGE</div><h4>Ongoing protection</h4><p>We track renewals and deadlines and defend your portfolio for the long term.</p></div>
       </div>
     </div>
-    <div class="steps">
-      <div class="step" data-reveal><div class="big">CONSULT</div><h4>Understand the matter</h4><p>We sit with you to understand your brand, invention or dispute and what a good outcome looks like.</p></div>
-      <div class="step" data-reveal data-d="1"><div class="big">STRATEGISE</div><h4>Build the strategy</h4><p>We map the rights available, the risks and the fastest, most defensible route to protection.</p></div>
-      <div class="step" data-reveal data-d="2"><div class="big">EXECUTE</div><h4>File &amp; enforce</h4><p>We register, file and — where needed — litigate, keeping you informed at every stage.</p></div>
-      <div class="step" data-reveal data-d="3"><div class="big">MANAGE</div><h4>Ongoing protection</h4><p>We track renewals and deadlines and defend your portfolio for the long term.</p></div>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <!-- TEAM (placeholder profiles) -->
-<section class="section" id="team" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="lhs" data-reveal>
-        <span class="sec-num">06 — The team</span>
-        <h2 class="sec-title">Counsel you'll<br>work with</h2>
-        <p class="sec-desc">Replace these placeholder profiles with your attorneys' names, credentials and photographs before launch.</p>
+<div class="pin-track" id="team" style="--steps:3">
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="lhs" data-reveal>
+          <span class="sec-num">06 — The team</span>
+          <h2 class="sec-title">Counsel you'll<br>work with</h2>
+          <p class="sec-desc">Replace these placeholder profiles with your attorneys' names, credentials and photographs before launch.</p>
+        </div>
+      </div>
+      <div class="grid-svc">
+        <div class="svc team-card reveal-step">
+          <div class="avatar">[__]</div>
+          <h4>[Attorney Name]</h4>
+          <div class="who">Founding Partner · IP</div>
+          <p>[Short bio — practice focus, years of experience, notable matters, bar admissions and qualifications.]</p>
+        </div>
+        <div class="svc team-card reveal-step">
+          <div class="avatar">[__]</div>
+          <h4>[Attorney Name]</h4>
+          <div class="who">Partner · Litigation</div>
+          <p>[Short bio — practice focus, years of experience, notable matters, bar admissions and qualifications.]</p>
+        </div>
+        <div class="svc team-card reveal-step">
+          <div class="avatar">[__]</div>
+          <h4>[Attorney Name]</h4>
+          <div class="who">Associate · Corporate</div>
+          <p>[Short bio — practice focus, years of experience, notable matters, bar admissions and qualifications.]</p>
+        </div>
       </div>
     </div>
-    <div class="grid-svc">
-      <div class="svc team-card" data-reveal>
-        <div class="avatar">[__]</div>
-        <h4>[Attorney Name]</h4>
-        <div class="who">Founding Partner · IP</div>
-        <p>[Short bio — practice focus, years of experience, notable matters, bar admissions and qualifications.]</p>
-      </div>
-      <div class="svc team-card" data-reveal data-d="1">
-        <div class="avatar">[__]</div>
-        <h4>[Attorney Name]</h4>
-        <div class="who">Partner · Litigation</div>
-        <p>[Short bio — practice focus, years of experience, notable matters, bar admissions and qualifications.]</p>
-      </div>
-      <div class="svc team-card" data-reveal data-d="2">
-        <div class="avatar">[__]</div>
-        <h4>[Attorney Name]</h4>
-        <div class="who">Associate · Corporate</div>
-        <p>[Short bio — practice focus, years of experience, notable matters, bar admissions and qualifications.]</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <!-- CTA -->
 <section class="cta" id="contact">

@@ -22,6 +22,34 @@
     }, 5000);
   }
 
+  /* pinned scroll-through reveal: each .pin-track section joins its items one at a
+     time while the track's extra height scrolls under the sticky section, then releases */
+  var pinTracks = document.querySelectorAll('.pin-track');
+  if(pinTracks.length && !rm){
+    var tracks = Array.prototype.map.call(pinTracks, function(track){
+      return { el: track, steps: track.querySelectorAll('.reveal-step') };
+    });
+    var onPinScroll = function(){
+      tracks.forEach(function(t){
+        var rect = t.el.getBoundingClientRect();
+        var scrollRoom = rect.height - window.innerHeight;
+        if(scrollRoom <= 0) return;
+        if(rect.top > 0){
+          t.steps.forEach(function(el){ el.classList.remove('in-step'); });
+          return;
+        }
+        var progress = Math.max(0, Math.min(1, -rect.top / scrollRoom));
+        /* finish revealing by 50% of the track so there's a stable dwell — all
+           items visible, nothing moving — before the section naturally releases */
+        var revealProgress = Math.min(1, progress / 0.5);
+        var active = Math.floor(revealProgress * (t.steps.length + 1)) - 1;
+        t.steps.forEach(function(el, i){ el.classList.toggle('in-step', i <= active); });
+      });
+    };
+    window.addEventListener('scroll', onPinScroll, {passive:true});
+    onPinScroll();
+  }
+
   /* reveal */
   var io = new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
@@ -55,6 +83,19 @@
         el.style.transform = 'translateY('+(y*s*-1)+'px)';
       });
     }, {passive:true});
+  }
+
+  /* hero photo parallax: --hero-scroll goes 0→1 as the hero scrolls past,
+     driving a slow drift on .hero-carousel (site.css) for real depth on scroll */
+  var heroEl = document.querySelector('.hero');
+  if(heroEl && !rm){
+    var onHeroScroll = function(){
+      var rect = heroEl.getBoundingClientRect();
+      var p = Math.max(0, Math.min(1, -rect.top / rect.height));
+      heroEl.style.setProperty('--hero-scroll', p.toFixed(3));
+    };
+    window.addEventListener('scroll', onHeroScroll, {passive:true});
+    onHeroScroll();
   }
 
   /* ---------- spark particle field ---------- */
