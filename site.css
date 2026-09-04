@@ -37,9 +37,9 @@
 .drop a:hover .nm{color:var(--bone)}
 .drop .soon{opacity:.5;cursor:default}
 .drop .soon .nm{color:var(--ash)}
-.tag-live{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.16em;
+.tag-live{font-family:'Inter',system-ui,sans-serif;font-size:8.5px;letter-spacing:.16em;
   text-transform:uppercase;color:#5fd38a}
-.tag-soon{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.16em;
+.tag-soon{font-family:'Inter',system-ui,sans-serif;font-size:8.5px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--ash-2);border:1px solid var(--line);padding:2px 6px}
 
 /* dropdown collapses into the mobile menu */
@@ -52,7 +52,7 @@
 
 /* ---------- page hero (compact, for interior pages) ---------- */
 .page-hero{position:relative;z-index:2;padding:150px 0 40px}
-.page-hero .crumb{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;
+.page-hero .crumb{font-family:'Inter',system-ui,sans-serif;font-size:11px;letter-spacing:.2em;
   text-transform:uppercase;color:var(--ember);margin-bottom:26px;display:flex;align-items:center;gap:10px}
 .page-hero .crumb a{color:var(--ash)}
 .page-hero .crumb a:hover{color:var(--bone-2)}
@@ -67,7 +67,7 @@
 .hw.soon{opacity:.46}
 .hw.soon:hover{transform:none;border-color:var(--line)}
 .hw.soon:hover::after{opacity:0}
-.hw .soon-pill{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;
+.hw .soon-pill{font-family:'Inter',system-ui,sans-serif;font-size:10px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--ash-2);border:1px solid var(--line);padding:3px 8px}
 a.hw{color:inherit}
 
@@ -85,7 +85,7 @@ a.hw{color:inherit}
 .svc h4{font-family:'Fraunces',serif;font-weight:300;font-size:19px;letter-spacing:-.03em;line-height:1.12}
 .svc p{color:var(--bone-2);font-size:14px;line-height:1.55;margin-top:12px}
 .svc .foot-row{margin-top:auto;padding-top:20px;display:flex;align-items:center;justify-content:space-between}
-.svc .go{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;
+.svc .go{font-family:'Inter',system-ui,sans-serif;font-size:11px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--bone);display:inline-flex;align-items:center;gap:8px}
 .svc .go svg{width:13px;height:13px}
 .svc.soon{opacity:.5}
@@ -104,7 +104,7 @@ a.svc{color:inherit}
   display:flex;align-items:center;justify-content:center;margin-bottom:22px;
   font-family:'Archivo Expanded','Archivo',sans-serif;font-weight:900;font-size:18px;
   color:var(--ember);letter-spacing:.02em}
-.team-card .who{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;
+.team-card .who{font-family:'Inter',system-ui,sans-serif;font-size:11px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--ash);margin-top:6px}
 
 /* =====================================================================
@@ -350,3 +350,28 @@ header.on-photo:not(.scrolled) .menu-btn{border-color:rgba(245,245,234,.4);color
    so shifting it down by up to 60px never exposes bare background above it. */
 .hero-carousel{top:-60px;bottom:0;
   transform:translateY(calc(var(--hero-scroll, 0) * 60px))}
+
+/* ---------- replace the inherited coding-monospace label font ----------
+   ANY1's original template set every small-caps eyebrow/label/number in
+   JetBrains Mono — a code-editor typeface that reads as "developer tool"
+   rather than "law firm". Swapping to Inter (already the body font) keeps
+   every size, letter-spacing and color exactly as designed; only the
+   typeface changes, everywhere it changes, in one place. */
+.mono,
+.eyebrow,
+.brand .tag,
+.hero-strip .l,
+.sec-num,
+.pledge .n,
+.hw .vendor,
+.hw .idx,
+.hw .specs div,
+.dep .sector,
+.dep .live,
+.pipe .stage .pn,
+.cta .kick,
+.contact-line,
+.foot h6,
+.foot-bar span{
+  font-family:'Inter',system-ui,sans-serif;
+}
