@@ -22,32 +22,16 @@
     }, 5000);
   }
 
-  /* pinned scroll-through reveal: each .pin-track section joins its items one at a
-     time while the track's extra height scrolls under the sticky section, then releases */
-  var pinTracks = document.querySelectorAll('.pin-track');
-  if(pinTracks.length && !rm){
-    var tracks = Array.prototype.map.call(pinTracks, function(track){
-      return { el: track, steps: track.querySelectorAll('.reveal-step') };
-    });
-    var onPinScroll = function(){
-      tracks.forEach(function(t){
-        var rect = t.el.getBoundingClientRect();
-        var scrollRoom = rect.height - window.innerHeight;
-        if(scrollRoom <= 0) return;
-        if(rect.top > 0){
-          t.steps.forEach(function(el){ el.classList.remove('in-step'); });
-          return;
-        }
-        var progress = Math.max(0, Math.min(1, -rect.top / scrollRoom));
-        /* finish revealing by 50% of the track so there's a stable dwell — all
-           items visible, nothing moving — before the section naturally releases */
-        var revealProgress = Math.min(1, progress / 0.5);
-        var active = Math.floor(revealProgress * (t.steps.length + 1)) - 1;
-        t.steps.forEach(function(el, i){ el.classList.toggle('in-step', i <= active); });
+  /* staggered reveal: each .reveal-step fades in as it scrolls into view — the
+     per-item sequencing comes from the nth-child transition delays in site.css */
+  var stepEls = document.querySelectorAll('.reveal-step');
+  if(stepEls.length && !rm){
+    var sio = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in-step'); sio.unobserve(e.target); }
       });
-    };
-    window.addEventListener('scroll', onPinScroll, {passive:true});
-    onPinScroll();
+    },{threshold:.15, rootMargin:'0px 0px -10% 0px'});
+    stepEls.forEach(function(el){ sio.observe(el); });
   }
 
   /* reveal */

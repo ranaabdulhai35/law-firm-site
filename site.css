@@ -278,45 +278,35 @@ header.on-photo:not(.scrolled) .menu-btn{border-color:rgba(245,245,234,.4);color
 /* team avatar ring picks up the accent instead of a neutral line */
 .team-card .avatar{border-color:rgba(214,44,44,.35)}
 
-/* ---------- pinned scroll-through reveal, used by every "01 —" style section ----------
-   Each .pin-track is tall (scroll room scales with --steps, its item count);
-   the section inside sticks to the top of the viewport while that room
-   scrolls underneath, and app.js toggles .in-step on each .reveal-step as
-   scroll progress through the track crosses its threshold. Once the track's
-   height is used up, the section un-sticks and the page continues normally
-   — no extra JS needed for the release. */
-.pin-track{position:relative;height:calc(100vh + var(--steps, 4) * 48vh)}
-.pin-track > section{position:sticky;top:0;min-height:100svh;display:flex;
-  align-items:center;overflow:hidden;padding:36px 0}
-.pin-track .sec-head{margin-bottom:34px}
-.pin-track .hw{padding:24px}
-.pin-track .hw .tagrow{margin-bottom:18px}
-.pin-track .hw .role{min-height:0}
-.pin-track .hw .specs{margin-top:16px;padding-top:12px}
-.pin-track .grid-hw{gap:14px}
-/* wide grids (e.g. the 12-card IP services list) get an extra column while pinned so
-   they resolve in fewer rows. Scoped to exactly when the pin is active (matches the
-   inverse of the disable query below) so it never fights the site's own responsive
-   breakpoints for .grid-svc (2-col at ≤1000px, 1-col at ≤760px) on narrower screens. */
-@media(min-width:901px) and (prefers-reduced-motion:no-preference){
-  .pin-track-wide .grid-svc{grid-template-columns:repeat(4,1fr);gap:14px}
-  .pin-track-wide .svc{padding:20px;min-height:0}
-  .pin-track-wide .svc .ico{width:20px;height:20px;margin-bottom:14px}
-  .pin-track-wide .svc p{margin-top:8px;font-size:13px;line-height:1.45}
-}
-.reveal-step{opacity:0;transform:translateY(46px) scale(.94);
-  transition:opacity .7s var(--ease),transform .7s var(--ease)}
+/* ---------- staggered scroll reveal for the section item grids ----------
+   These sections flow normally: nothing is pinned to the viewport, so a short
+   block of content no longer sits marooned in a locked full-height section
+   with ~190px of dead space above and below it. app.js adds .in-step to each
+   .reveal-step as it scrolls into view; the nth-child delays below make the
+   items arrive in sequence rather than all at once. */
+.reveal-group{position:relative}
+.reveal-group .sec-head{margin-bottom:48px}
+
+/* One consistent vertical rhythm. The template's 130px section padding plus the
+   CTA's 150px stacked to ~280px of empty band at each seam; 96px reads as
+   deliberate breathing room without leaving the content stranded. */
+.section,
+.reveal-group > section.section{padding:96px 0}
+.cta{padding:104px 0 96px}
+.reveal-step{opacity:0;transform:translateY(38px) scale(.96);
+  transition:opacity .65s var(--ease),transform .65s var(--ease)}
 .reveal-step.in-step{opacity:1;transform:none}
-@media(max-width:900px),(prefers-reduced-motion:reduce){
-  .pin-track{height:auto}
-  .pin-track > section.section{padding:130px 0}
-  .pin-track > section{position:static;min-height:auto}
-  .pin-track .sec-head{margin-bottom:60px}
-  .pin-track .hw{padding:34px}
-  .pin-track .hw .tagrow{margin-bottom:30px}
-  .pin-track .hw .role{min-height:62px}
-  .pin-track .hw .specs{margin-top:24px;padding-top:18px}
-  .pin-track .grid-hw{gap:20px}
+/* ...but a "coming soon" card stays dimmed after it reveals — the end-state above
+   has the same specificity as .hw.soon/.svc.soon and would reset it to full. */
+.hw.soon.reveal-step.in-step{opacity:.46}
+.svc.soon.reveal-step.in-step{opacity:.5}
+.reveal-step:nth-child(2){transition-delay:.07s}
+.reveal-step:nth-child(3){transition-delay:.14s}
+.reveal-step:nth-child(4){transition-delay:.21s}
+.reveal-step:nth-child(5){transition-delay:.28s}
+.reveal-step:nth-child(6){transition-delay:.35s}
+.reveal-step:nth-child(n+7){transition-delay:.42s}
+@media(prefers-reduced-motion:reduce){
   .reveal-step{opacity:1;transform:none;transition:none}
 }
 
@@ -375,3 +365,23 @@ header.on-photo:not(.scrolled) .menu-btn{border-color:rgba(245,245,234,.4);color
 .foot-bar span{
   font-family:'Inter',system-ui,sans-serif;
 }
+
+/* The template also set these labels in very wide tracking (up to .34em), which
+   is the other half of the "futuristic" read — wide-tracked uppercase is a tech
+   convention. Pulled back to an editorial .1–.14em and given a little more
+   weight so they still register as small-caps labels at these sizes. */
+.eyebrow,
+.brand .tag,
+.cta .kick{letter-spacing:.14em;font-weight:500}
+.sec-num,
+.page-hero .crumb,
+.foot h6,
+.dep .sector,
+.dep .live,
+.hero-strip .l,
+.hw .vendor,
+.hw .soon-pill,
+.svc .go,
+.team-card .who,
+.tag-live,
+.tag-soon{letter-spacing:.1em;font-weight:500}
